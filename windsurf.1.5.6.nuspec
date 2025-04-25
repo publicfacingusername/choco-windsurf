@@ -9,7 +9,7 @@
     <title>Windsurf</title>
     <authors>codeium</authors>
     <projectUrl>https://codeium.com/windsurf</projectUrl>
-    <iconUrl>https://codeium.com/logo/windsurf_teal_logo.svg</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/publicfacingusername/choco-windsurf@main/windsurf_teal_logo.svg</iconUrl>
     <licenseUrl>https://codeium.com/terms-of-service-individual</licenseUrl>
     <projectSourceUrl>https://codeium.com/windsurf</projectSourceUrl>
     <docsUrl>https://docs.codeium.com/windsurf/</docsUrl>
