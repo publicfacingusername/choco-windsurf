@@ -4,7 +4,7 @@
   <metadata>
     <id>windsurf</id>
     <version>1.6.4</version>
-    <packageSourceUrl>https://codeium.com/windsurf/releases</packageSourceUrl>
+    <packageSourceUrl>https://github.com/publicfacingusername/choco-windsurf</packageSourceUrl>
     <owners>publicfacingusername</owners>
     <title>Windsurf</title>
     <authors>codeium</authors>
