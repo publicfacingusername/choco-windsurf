@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>windsurf</id>
+    <version>1.97.0</version>
+    <packageSourceUrl>https://github.com/publicfacingusername/choco-windsurf</packageSourceUrl>
+    <owners>publicfacingusername</owners>
+    <title>Windsurf</title>
+    <authors>codeium</authors>
+    <projectUrl>https://codeium.com/windsurf</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/publicfacingusername/choco-windsurf@e31a5239f2bfad2a3c452178e8b9f41d62a19799/windsurf_teal_logo.svg</iconUrl>
+    <licenseUrl>https://codeium.com/terms-of-service-individual</licenseUrl>
+    <projectSourceUrl>https://codeium.com/windsurf</projectSourceUrl>
+    <docsUrl>https://docs.codeium.com/windsurf/</docsUrl>
+    <tags>windsurf ide ai</tags>
+    <summary>Windsurf is Codeium’s next-generation AI IDE built to keep you in the flow. On this page, you’ll find instructions on how to install Windsurf on your computer, navigate the onboarding flow, and get started with your first AI-powered project.</summary>
+    <description>
+
+## What is Windsurf?    
+
+We don't mind if you call the Windsurf Editor the first agentic IDE, the first native surface for developers to collaborate with AI, or simply how we like to think about it - tomorrow’s editor, today.
+
+When we first used the Windsurf Editor, a lot of the words that we found resonating with us included magic, power, and flow state. Windsurfing perfectly captures the combination of human, machine, and nature in an activity that looks effortless, but takes an intense amount of power.
+
+You can think of the Windsurf Editor as the first agentic IDE, and then more. It is a new paradigm of working with AI, which we are calling AI flows - collaborative agents.
+
+We started with the existing paradigms of AI use. Copilots are great because of their collaborativeness with the developer - the human is always in the loop. That being said, to keep the human in the loop, copilots are generally confined to short scoped tasks. On the other hand, agents are great because the AI can independently iterate to complete much larger tasks. The tradeoff is that you lose the collaborative aspect, which is why we haven’t seen an agentic IDE (yet). An IDE would be overkill. Both copilots and agents are super powerful and have their use cases, but have generally been seen as complementary because their strengths and weaknesses are indeed complementary.
+
+Our spark came from one simple question - what if the AI had the best of both worlds? What if the AI was capable of being both collaborative and independent? Well, that is what makes humans special. Working with that kind of AI could feel like magic.
+
+With a lot of research, we built the foundations of this kind of system, which we are calling AI flows. AI flows allow developers and AI to truly mind-meld, combining the best of copilots and agents.
+
+Understand AI flows even more [here](https://codeium.com/flows).
+
+## Who can use this and what are the security guarantees?
+
+From our end, you can use the Windsurf Editor for any work, but check with your employer if you plan to use it for your professional work. Currently, the Windsurf Editor (and connected functionalities like Cascade) are available for any of our self-serve plans, and as we learn more about the extent of what Cascade is capable of, we will make the Windsurf Editor available to enterprise plans. The Windsurf Editor obeys [the same security guarantees](https://codeium.com/security) and code snippet telemetry rules as the Codeium extensions.</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
