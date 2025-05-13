@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://windsurf-stable.codeiumdata.com/win32-x64-user/stable/0e5671325b17d1c5cc8f2a78cc8dcb0b132ddb4c/WindsurfUserSetup-x64-1.8.0.exe'
+$url        = 'https://windsurf-stable.codeiumdata.com/win32-x64-user/stable/b21eedafd0e27ae3d0a6e454346f7b02178f0949/WindsurfUserSetup-x64-1.7.1.exe'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
