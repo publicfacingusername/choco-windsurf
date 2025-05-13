@@ -1,0 +1,2 @@
+$url = 'https://windsurf-stable.codeiumdata.com/win32-x64-user/stable/71eeb18eeed7897bea630fcaba7d37c49c78b05e/WindsurfUserSetup-x64-1.7.3.exe' 
+$f = "$env:TEMP\Windsurf.exe"; Invoke-WebRequest $url -OutFile $f; (Get-FileHash $f -Algorithm SHA256).Hash; Remove-Item $f
