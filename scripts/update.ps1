@@ -53,6 +53,6 @@ if ($nuspec.Name -ne $newNuspecName) {
 
 $installScriptPath = Join-Path $repoRoot 'tools/chocolateyinstall.ps1'
 $installContent = Get-Content -Path $installScriptPath -Raw
-$installContent = $installContent -replace "(?m)^\$url\s*=\s*'.*'\s*$", "\$url        = '$url'"
+$installContent = $installContent -replace '(?m)^\$url\s*=\s*''.*''\s*$', "`$url        = '$url'"
 $installContent = $installContent -replace "(?m)^\s*checksum\s*=\s*'.*'\s*$", "  checksum      = '$checksum'"
 Set-Content -Path $installScriptPath -Value $installContent -Encoding UTF8
