@@ -1,30 +1,27 @@
 $ErrorActionPreference = 'Stop'
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$releaseBaseUrl = 'https://windsurf-stable.codeiumdata.com/win32-x64-user/stable'
-$latestManifestUrl = "$releaseBaseUrl/latest.yml"
+$downloadsPageUrl = 'https://windsurf.com/download/editor#all-download-options'
 
-Write-Host "Fetching latest release manifest: $latestManifestUrl"
+Write-Host "Fetching download options page: $downloadsPageUrl"
 $webHeaders = @{ 'User-Agent' = 'Mozilla/5.0' }
-$manifestResponse = Invoke-WebRequest -Uri $latestManifestUrl -Headers $webHeaders
-$manifestContent = $manifestResponse.Content
+$pageResponse = Invoke-WebRequest -Uri $downloadsPageUrl -Headers $webHeaders
+$pageContent = $pageResponse.Content
 
-$versionMatch = [regex]::Match($manifestContent, "(?m)^version:\\s*(.+)$")
+$urlMatch = [regex]::Match($pageContent, '(?i)https?://[^\"\\s>]+WindsurfUserSetup[^\"\\s>]*\\.exe')
+if (-not $urlMatch.Success) {
+  $urlMatch = [regex]::Match($pageContent, '(?i)https?://[^\"\\s>]+win32[^\"\\s>]+\\.exe')
+}
+if (-not $urlMatch.Success) {
+  throw 'Unable to determine Windows installer URL from download options page.'
+}
+$url = $urlMatch.Value
+
+$versionMatch = [regex]::Match($url, '(?i)-(?<version>\\d+\\.\\d+\\.\\d+(?:\\.\\d+)?)\\.exe')
 if (-not $versionMatch.Success) {
-  throw 'Unable to determine latest version from latest.yml.'
+  throw 'Unable to determine version from installer URL.'
 }
-$version = $versionMatch.Groups[1].Value.Trim()
-
-$pathMatch = [regex]::Match($manifestContent, "(?m)^\\s*(path|url):\\s*(.+)$")
-if (-not $pathMatch.Success) {
-  throw 'Unable to determine installer path from latest.yml.'
-}
-$pathValue = $pathMatch.Groups[2].Value.Trim()
-$url = if ($pathValue -match '^https?://') {
-  $pathValue
-} else {
-  "$releaseBaseUrl/$pathValue"
-}
+$version = $versionMatch.Groups['version'].Value
 
 if (-not $url) {
   throw "Installer URL missing for version $version."
