@@ -65,12 +65,13 @@ jobs:
           if (-not $packageId -or -not $packageVersion) {
             throw "Package id/version missing from nuspec."
           }
-          $existing = choco list $packageId --source https://community.chocolatey.org/api/v2/ --exact --all |
-            Select-String -Pattern ("^{0}\s+{1}$" -f [regex]::Escape($packageId), [regex]::Escape($packageVersion))
-          if ($existing) {
-            Write-Host "Package $packageId $packageVersion already exists on community repository. Skipping push."
-            exit 0
-          }
           $pkg = Get-ChildItem -Filter "windsurf.*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
           if (-not $pkg) { throw "No nupkg found to push." }
-          choco push $pkg.FullName --source https://push.chocolatey.org/ --api-key $env:CHOCOLATEY_API_KEY
+          $pushOutput = choco push $pkg.FullName --source https://push.chocolatey.org/ --api-key $env:CHOCOLATEY_API_KEY 2>&1
+          if ($LASTEXITCODE -ne 0) {
+            if ($pushOutput -match 'already exists on the repository') {
+              Write-Host "Package $packageId $packageVersion already exists. Skipping push."
+              exit 0
+            }
+            throw "choco push failed: $pushOutput"
+          }
