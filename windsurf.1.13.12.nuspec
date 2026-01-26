@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>windsurf</id>
-    <version>1.13.9</version>
+    <version>1.13.12</version>
     <packageSourceUrl>https://github.com/publicfacingusername/choco-windsurf</packageSourceUrl>
     <owners>publicfacingusername</owners>
     <title>Windsurf</title>
