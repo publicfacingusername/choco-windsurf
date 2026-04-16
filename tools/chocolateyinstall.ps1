@@ -1,19 +1,20 @@
 $ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://windsurf-stable.codeiumdata.com/win32-x64-user/stable/b2ba530c121ad65f672146836c0946345b2537cf/WindsurfUserSetup-x64-2.0.44.exe'
+$url        = 'https://windsurf-stable.codeiumdata.com/win32-x64-user/stable/c973f91b37b89375b5b009109c2fe84d185fab48/WindsurfUserSetup-x64-2.0.50.exe'
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
   fileType      = 'exe'
   url           = $url
   softwareName  = 'Windsurf*'
-  checksum      = '96E2218BBF541AAB7198EA206E5E51DFC7E011F92D17544B6AD066643E7D952B'
+  checksum      = '8C15107FB3C0F6602C87DA3E79FFE8621B0A703E45E48B5F471F42E86446BA7C'
   checksumType  = 'sha256'
   silentArgs    = "/VERYSILENT"
   validExitCodes= @(0, 3010, 1641)
 }
 
 Install-ChocolateyPackage @packageArgs # https://docs.chocolatey.org/en-us/create/functions/install-chocolateypackage
+
 
 
 
